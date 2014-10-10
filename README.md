@@ -29,7 +29,7 @@ arrI = Matrix.upper(n, value);			// Upper matrix size n,  item(i>=j)  = value
 arrJ = Matrix.lower(n, value);			// Lower matrix size n,  item(i<=j)  = value
 ```
 
-+__Algebra methods:__ Here is where fun begins:
++ __Algebra methods:__ Here is where fun begins:
 ```javascript
 arrB = arrA.scalar(value);				// New matrix, where scalar multiplication of value has been applied to arrA
 arrD = arrA.add(arrC);					// New matrix that results of the sum of ArrA and ArrB, both of the same size. 
@@ -42,7 +42,7 @@ arrH = arrA.inverse();					// New matrix, inverse of arrA
 
 And several support methods!
 
-+__Properties:__ Static methods:
++ __Properties:__ Static methods:
 ```javascript
 arrA.size()	;									// [n,m]
 arrA.trace();									// Returns the trace of the matrix 
@@ -60,7 +60,7 @@ arrA.symmetric();							// True if arrA is symmetric. item(i,j)==item(j,i)
 arr.square();									// True if arrA is an square matrix
 ```
 
-+__Process methods:__ Methods that apply simple process to the current Matrix:
++ __Process methods:__ Methods that apply simple process to the current Matrix:
 ```javascript
 arrB = arrA.fill(value);						// New matrix with the same size as arrA but filled with value
 arrC = arrA.upper();							// New matrix, same as arrA, but item(i<j)  = 0
@@ -69,7 +69,7 @@ arrE = arrA.transpose();						// New matrix, transpose of arrA.
 arrF = arrA.minor(i,j);						// New matrix, size n-1 x m-1. Minor of itemA(i,j)
 ```
 
-+__Xtra methods:__ 
++ __Xtra methods:__ 
 ```javascript
 arrB = arrA.clone();							// New matrix, deep clone of arrA
 arrA.tostring(sep);								// Pretty print of arrA, using sep as separator of items (default sep= ', ')
