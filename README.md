@@ -40,7 +40,7 @@ arrG = arrA.adjugate();					// New matrix, adjugate of arrA
 arrH = arrA.inverse();					// New matrix, inverse of arrA
 ```
 
-And several support methods!
+####And several support methods!
 
 + __Properties:__ Static methods:
 ```javascript
@@ -51,7 +51,7 @@ arrA.row(i);									//Returns an array with the values of row i
 arrA.column(j);								//Returns an array with the values of column j
 ```
 
-+Checking methods:__ Perform some usual checks to matrices:
++ __Checking methods:__ Perform some usual checks to matrices:
 ```javascript
 arrA.samesize(arrB);						// True if both matrices have the same size
 arrA.is(arrB);								// True if arrA == ArrB
