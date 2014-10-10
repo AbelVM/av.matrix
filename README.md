@@ -7,7 +7,7 @@ It extends the core Array object to supply the basics for __linear Algebra__ (2D
 
 Can be combined with  [av.array] (https://github.com/AbelVM/av.arrays "Small&Fast Javascript library that attaches xtra methods for arrays, including basic Descriptive Statistics functions") to get even more from your matrix!
 
-Being arr__X__ a Matrix:
+Being __arrX__ a Matrix:
 
 + __Constructors:__ A matrix can be instatiated using a wide variety of inputs:
 ```javascript
