@@ -62,9 +62,9 @@ arr.square();									// True if arrA is an square matrix
 
 + __Process methods:__ Methods that apply simple process to the current Matrix:
 ```javascript
-arrB = arrA.fill(value);						// New matrix with the same size as arrA but filled with value
-arrC = arrA.upper();							// New matrix, same as arrA, but item(i<j)  = 0
-arrD = arrA.lower();							// New matrix, same as arrA, but item(i>j)  = 0
+arrB = arrA.Fill(value);						// New matrix with the same size as arrA but filled with value
+arrC = arrA.Upper();							// New matrix, same as arrA, but item(i<j)  = 0
+arrD = arrA.Lower();							// New matrix, same as arrA, but item(i>j)  = 0
 arrE = arrA.transpose();						// New matrix, transpose of arrA. 
 arrF = arrA.minor(i,j);						// New matrix, size n-1 x m-1. Minor of itemA(i,j)
 ```
