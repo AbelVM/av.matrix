@@ -23,10 +23,10 @@ arrE = new Matrix(r1, ..., rn);			//  nxm matrix with the given rows
 
 arrF = new Matrix([[], ..., []]);		// Matrix from the given array of arrays (rows)	
 
-arrG = Matrix.fill(n, value);				// Square matrix size = n, every item = value
-arrH = Matrix.diagonal (n, value);	// Diagonal matrix size = n,  item(i=j) = value
-arrI = Matrix.upper(n, value);			// Upper matrix size n,  item(i>=j)  = value
-arrJ = Matrix.lower(n, value);			// Lower matrix size n,  item(i<=j)  = value
+arrG = Matrix.Fill(n, value);				// Square matrix size = n, every item = value
+arrH = Matrix.Diagonal (n, value);	// Diagonal matrix size = n,  item(i=j) = value
+arrI = Matrix.Upper(n, value);			// Upper matrix size n,  item(i>=j)  = value
+arrJ = Matrix.Lower(n, value);			// Lower matrix size n,  item(i<=j)  = value
 ```
 
 + __Algebra methods:__ Here is where fun begins:
@@ -67,9 +67,9 @@ arr.square();									// True if arrA is an square matrix
 
 + __Process methods:__ Methods that apply simple process to the current Matrix:
 ```javascript
-arrB = arrA.Fill(value);						// New matrix with the same size as arrA but filled with value
-arrC = arrA.Upper();							// New matrix, same as arrA, but item(i<j)  = 0
-arrD = arrA.Lower();							// New matrix, same as arrA, but item(i>j)  = 0
+arrB = arrA.fill(value);						// New matrix with the same size as arrA but filled with value
+arrC = arrA.upper();							// New matrix, same as arrA, but item(i<j)  = 0
+arrD = arrA.lower();							// New matrix, same as arrA, but item(i>j)  = 0
 arrE = arrA.transpose();						// New matrix, transpose of arrA. 
 arrF = arrA.minor(i,j);						// New matrix, size n-1 x m-1. Minor of itemA(i,j)
 ```
