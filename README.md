@@ -12,9 +12,9 @@ Being __arrX__ a Matrix:
 + __Constructors:__ A matrix can be instatiated using a wide variety of inputs:
 ```javascript
 arrA = new Matrix();					// [0]
-arrB = new Matrix(n);				//	Zero row vector size = n
-arrC = new Matrix(1,m);			// Zero column vector size = m
-arrD = new Matrix(n,m);			// Zero matrix size = n x m
+arrB = new Matrix(n);				//	Zero row vector size n
+arrC = new Matrix(1,m);			// Zero column vector size m
+arrD = new Matrix(n,m);			// Zero matrix size n x m
 
 r1 = [E11,...,E1m] ;
 ...
@@ -42,13 +42,18 @@ arrH = arrA.inverse();					// New matrix, inverse of arrA
 
 ####And several support methods!
 
-+ __Properties:__ Static methods:
++ __Properties:__ 
 ```javascript
-arrA.size()	;									// [n,m]
-arrA.trace();									// Returns the trace of the matrix 
+Matrix.version;								// String with [av.matrix] version (read-only)
+arrA.size;										// Array [n,m] with the size n x m of the matrix (read-only)
+arrA.trace;									// Number, the trace of the matrix (read-only)
+```
+
++ __Retrievers__ 
+```javascript
 arrA.item(i,j);								// Returns the value of item(i,j)
-arrA.row(i);									//Returns an array with the values of row i
-arrA.column(j);								//Returns an array with the values of column j
+arrA.row(i);									// Returns an array with the values of row i
+arrA.column(j);								// Returns an array with the values of column j
 ```
 
 + __Checking methods:__ Perform some usual checks to matrices:

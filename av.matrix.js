@@ -2,18 +2,25 @@
 *:: av.matrix ::
 *2D arrays objects & Algebra
 *@author	Abel Vázquez <abel.vm@gmail.com>
-*@version	1.0.4
-*@since	2014-10-10
+*@version	1.0.6
+*@since	2014-10-12
 */
 
 (function(){
 
+	'use strict';
+	
 	window.Matrix = window.Matrix || Object.create(Array); 
+	Object.defineProperty(Matrix,'version',{
+		value: '1.0.6',
+		enumerable: true
+	});
 	
 	// constructor
-	Matrix = function(e) {
+	Matrix = function matrix(e) {
 		var	_args =  Array.prototype.slice.call(arguments),
-				_m = Object.create(Array);
+				_m = Object.create(Matrix);
+				_m.constructor = Matrix.prototype.constructor;
 		// mount
 		if (_args.every(function(a){return typeof(a)=='number'})){
 			if (_args.length == 0) {
@@ -36,14 +43,20 @@
 			return [];
 		}
 		
-		// properties methods
-		_m.size = function(){
-			return [this.length,this[0].length || 1];
-		};
-		_m.trace = function(){
-			if (_m.isNaN()){console.error("Matrix:trace: Matrix must be numerical"); return NaN}
-			return this.reduce(function(a,b,c){return b.reduce(function(d,e,f){return d+(c==f)?e:0},a)},0);
-		};
+		// properties
+		Object.defineProperty(_m,'size',{
+			get: function() { return [this.length,this[0].length || 1];},
+			enumerable: true
+		});
+		Object.defineProperty(_m,'trace',{
+			get:  function(){
+				if (this.isNaN()){console.error("Matrix:trace: Matrix must be numerical"); return NaN;}
+				return this.reduce(function(a,b,c){return a+b[c]},0);
+			},
+			enumerable: true
+		});
+		
+		// sub-elements
 		_m.item = function(i,j){
 			return this[i][j] || null;
 		};
@@ -54,7 +67,14 @@
 			var _tmp= new Array(this[0].length);
 			return _tmp.map(function(a,b){return this[b][j]});
 		};
-
+		_m.minor = function(i,j){
+			if (this.size().some(function(a){return a<2})) {console.error("Matrix:submatrix: vectors don't have submatrices");return Matrix();}
+			var	_size = this.size,
+					_final = new Matrix(_size[0]-1, _size[1]-1),
+					_result = _final.map(function(a,b){return a.map(function(c,d){b=(b<i)?b:b+1;d=(d<j)?d:d+1;return _m[b][d];})});
+			return Matrix(_result);
+		};
+		
 		// process methods
 		_m.fill = function(value) {
 			if (isNaN(value)){console.error("Matrix:fill: Arguments must be numerical"); return Matrix()}
@@ -75,13 +95,6 @@
 			if (_size[0]==1) return Matrix(this[0]);
 			if (_size[1]==1) {var _b=[]; _b[0]=this; return Matrix(_b);}
 			return Matrix(_final.map(function(a,b){return a.map(function(c,d){return that[d][b]})}));
-		};
-		_m.minor = function(i,j){
-			if (this.size().some(function(a){return a<2})) {console.error("Matrix:submatrix: vectors don't have submatrices");return Matrix();}
-			var	_size = this.size,
-					_final = new Matrix(_size[0]-1, _size[1]-1),
-					_result = _final.map(function(a,b){return a.map(function(c,d){b=(b<i)?b:b+1;d=(d<j)?d:d+1;return _m[b][d];})});
-			return Matrix(_result);
 		};
 		
 		// algebra methods
